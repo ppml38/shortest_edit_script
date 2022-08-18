@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Research paper</title>
+     <meta charset="UTF-8" />
+     <!-- <meta http-equiv="refresh" content="0; URL=https://github.com/ppml38/shortest_edit_script/raw/main/paper/shortest_edit_script_algorithm.pdf" /> -->
+   </head>
+   <style>
+    body{
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+font-size: 14px;
+line-height: 1.42857143;
+color: #333;
+    }
+    textarea{
+        font-family: inherit;
+font-size: inherit;
+line-height: inherit;
+    }
+       #source, #destination, #edit_script{
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+    }
+    #edit_script{
+        display: none;
+                margin-top: 30px;
+            }
+            #script{
+        border: 1px solid #ccc;
+border-radius: 4px;
+padding: 6px 12px;
+    }
+    #demo_box, #menu_box{
+        width:  70%;
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    #demo_box{
+        display: none;
+    }
+    #demo_box #title{
+        width: 100%;
+        text-align: center;
+    }
+    #menu_box{
+        text-align: center;
+    }
+    #source, #destination{
+        border: 1px solid #ccc;
+border-radius: 4px;
+padding: 6px 12px;
+box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    }
+    #source:focus, #destination:focus{
+        border-color: #66afe9;
+outline: 0;
+-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    }
+    .str{
+        display: inline-block;
+        background-color: whitesmoke;
+        border: solid 1px lightgray;
+        border-radius: 2px;
+        padding: 1px 7px;
+    }
+    .ins{
+        margin-top: 5px;
+    }
+    button, .link_button{
+            display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+        color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+#back{
+    display: none;
+}
+.hide{
+    color: #333;
+background-color: #fff;
+border-color: #ccc;
+margin-top:  10px;
+}
+.hide:hover{
+    color: #333;
+background-color: #e6e6e6;
+border-color: #adadad;
+}
+.hide:active{
+    color: #333;
+background-color: #d4d4d4;
+border-color: #8c8c8c;
+}
+.link_button{
+    text-decoration: none;
+    color: #fff;
+background-color: #5cb85c;
+border-color: #4cae4c;
+}
+button:hover{
+    color: #fff;
+background-color: #286090;
+border-color: #204d74;
+}
+.link_button:hover{
+    color: #fff;
+background-color: #449d44;
+border-color: #398439;
+}
+button:active{
+outline: 0;
+-webkit-box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
+box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
+color: #fff;
+background-color: #204d74;
+border-color: #122b40;
+}
+.link_button:active{
+    color: #fff;
+background-color: #398439;
+border-color: #255625;
+}
+    }
+   </style>
+   <body>
+    <button class='hide' id='back' onclick="toggle_demo();">< Back</button>
+    <div id="menu_box">
+        <h1>Shortest edit script algorithm</h1>
+            <a class="link_button" href="https://github.com/ppml38/shortest_edit_script/raw/main/paper/shortest_edit_script_algorithm.pdf">Read research paper</a>&nbsp;&nbsp;&nbsp;
+            <button onclick="toggle_demo();">Check demonstration</button>
+    </div>
+     <div id="demo_box">
+        <div id='title'><h1>Shortest edit script algorithm</h1>
+        <p><a href="https://github.com/ppml38/shortest_edit_script/raw/main/paper/shortest_edit_script_algorithm.pdf">Click here</a> to read the research paper</p></div>
+        <h2>Demo</h2>
+     <textarea id="source" rows="5">Add original content here.</textarea>
+     <textarea id="destination" rows="5">Add modified content here.</textarea>
+     <button onclick="handleClick();" id="generate_button">Compare and generate edit script matching word by word</button>
+     <div id="edit_script">
+        <h2>Edit script</h2>
+        <div id='script'></div>
+        <button class='hide' onclick="hide_script();">Clear</button>
+     </div>
+ </div>
+ <script type="text/javascript" src="edit_script.js"></script>
+   </body>
+</html>
