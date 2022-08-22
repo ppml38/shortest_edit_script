@@ -3,14 +3,6 @@ class entry{
         this.edits=edits
         this.edit_script=edit_script
     }
-
-    __repr__(){
-        return "{edit_distance: %d, edit_script: %s}"%(str(this.edits), str(this.edit_script))
-    }
-
-    __str__(){
-        return this.__repr__()
-    }
 }
 
 class data{
@@ -40,13 +32,6 @@ class edit_script{
         }
         this.generate_edit_script()
     }
-
-    __repr__(){
-        return str(this.edit_script_matrix)
-    }
-
-    __str__(){
-        return this.__repr__()
     }
 
     get_shortest_edit_script(){
