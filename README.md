@@ -7,3 +7,5 @@ Novel approach to generate shortest edit script using Levenshtein distance algor
 [Read the research paper](https://arxiv.org/pdf/2208.08823)
 
 [Algorithm demo](https://ppml38.github.io/shortest_edit_script)
+
+Please add your views, feedbacks and suggestions [here](https://github.com/ppml38/shortest_edit_script/discussions/1)
